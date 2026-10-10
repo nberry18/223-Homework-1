@@ -13,18 +13,16 @@ Highlights:
 
 ```{r}
 EDS223-HW1
-│   README.md
-│   ej_screen.qmd
-|   ej_screen.pdf
-|   ej_screen.html
-|   ej_screen.tex
-├── ejscreen_files
-|        figure-html
-|         figure-pdf
 └───data
-     └───ejscreen
+     └───ejscreen_2023
          ejscreen-tech-doc-version-2-2.pdf
          EJSCREEN_2023_BG_Columns.xlsx
+├── ej_files
+|        figure-html
+|        libs
+│   ej.html
+│   ej.qmd
+│   README.md
 ```
 
 ## Data Access
