@@ -2,14 +2,12 @@
 title: "EDS 223 Homework Assignment #1"
 subtitle: "Mapping PM2.5 Exposure and the Demographic Index of People of Color and Low-Income Communities in Yakima County"
 author: "Nina Berry"
-date: 2026-10-09
+date: last-modified
 format:
-  html: default
-  typst: default
-format-links: [typst]
-execute:
-  message: false
-  warning: false
+  html:
+    toc: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
