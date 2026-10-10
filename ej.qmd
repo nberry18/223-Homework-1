@@ -1,13 +1,15 @@
 ---
-title: "EDS 223 Homework Assignment #1: Environmental Justice in Yakima County"
-subtitle: "Mapping PM2.5 and the Demographic Index of People of Color and Low-Income Communities"
+title: "EDS 223 Homework Assignment #1"
+subtitle: "Mapping PM2.5 Exposure and the Demographic Index of People of Color and Low-Income Communities in Yakima County"
 author: "Nina Berry"
 date: 2026-10-09
-format: 
-  html: 
-    toc: true
-editor_options: 
-  chunk_output_type: console
+format:
+  html: default
+  typst: default
+format-links: [typst]
+execute:
+  message: false
+  warning: false
 ---
 
 ```{r}
@@ -80,4 +82,7 @@ PM25_Yakima <- tm_shape(yakima) +
 tmap_arrange(Demographic_Index_Yakima_Map, PM25_Yakima_Map, ncol = 2)
 ```
 
-## 
+## Summary of Yakima County Maps
+The PM2.5 Exposure Map for Yakima County shows that the highest average PM2.5 concentrations are concentrated in the eastern portion of the county, as indicated by the darker green shading. In contrast, the northwestern regions experience lower PM2.5 concentrations. The Demographic Index Map identifies census block groups with higher proportions of low-income residents and people of color, represented by light to dark green shades mostly located in the eastern and southern western part of the county. Comparing the two maps suggests that some communities with greater social vulnerability may also experience higher levels of PM2.5 exposure, highlighting potential environmental justice concerns. These communities often have fewer resources to support consistent air quality monitoring efforts. Yakima County is susceptible to fluctuating PM2.5 levels due to a variety of factors including wildfires, agricultural work, and the valley topography of the county. Expanding and maintaining a robust air monitoring network in vulnerable communities would provide more current and representative dataset to improve our understanding of local air quality conditions, and support efforts to ensure all residents have access to clean air.
+
+A next step in this analysis would be to incorporate elevation data into the analysis to better understand how Yakima County's valley topography influences the distribution and accumulation of PM2.5. Examining elevation alongside demographic and air quality patterns could help identify areas that are disproportionately vulnerable to poor air quality and inform future mitigation efforts.
