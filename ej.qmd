@@ -1,22 +1,83 @@
+---
+title: "EDS 223 Homework Assignment #1: Environmental Justice in Yakima County"
+subtitle: "Mapping PM2.5 and the Demographic Index of People of Color and Low-Income Communities"
+author: "Nina Berry"
+date: 2026-10-09
+format: 
+  html: 
+    toc: true
+editor_options: 
+  chunk_output_type: console
+---
+
 ```{r}
+#| message: false
+#| warning: false
+
+# Load in R packages
 library(tidyverse)
 library(sf)
 library(here)
 library(tmap)
 library(stars)
+library(viridisLite)
 
+```
+
+## Read in EJ Screen Data
+```{r}
 # read in geodatabase of EJScreen data at the Census Block Group level
 ejscreen <- sf::st_read(here::here("data", "ejscreen","EJSCREEN_2023_BG_StatePct_with_AS_CNMI_GU_VI.gdb")) 
 
+```
+
+## Filter to Washington State and Yakima County 
+```{r}
+# Washington State - EJScreen
 washington <- ejscreen %>%
   dplyr::filter(ST_ABBREV == "WA") 
 
-spokane_wa <- ejscreen %>%
-  dplyr::filter(CNTY_NAME %in% c("Spokane County"))
+# Yakima County - EJScreen
+yakima <- ejscreen %>%
+  dplyr::filter(CNTY_NAME %in% c("Yakima County"))
 
 ```
 
+## Map of Demographic Index for Yakima County
 ```{r}
+# Demographic Index for Yakima County Map
 
+Demographic_Index_Yakima <- tm_shape(yakima) +
+  tm_polygons(fill = "DEMOGIDX_2",
+              fill.scale = tm_scale_continuous(values = 'brewer.yl_gn'),
+              fill.legend = tm_legend(title = "Average percent of low income and people of color")) +
+  tm_title('Demographic Index in Yakima County (2023)',
+            frame = TRUE) + 
+  tm_layout(bg.color = "white") +
+  tm_style("beaver") +
+  tm_compass(type = "8star", position = c("right", "top"))
 
 ```
+
+## Map of PM2.5 Exposure in Yakima County 
+```{r}
+# PM2.5 Exposure in Yakima County Map
+
+PM25_Yakima <- tm_shape(yakima) +
+  tm_polygons(fill = "PM25",
+              fill.scale = tm_scale_continuous(values = 'brewer.yl_gn'),
+              fill.legend = tm_legend(title = "Average PM2.5 Concentration (µg/m³) (2023)")) +
+  tm_title('PM2.5 Exposure in Yakima County',frame = TRUE) + 
+  tm_layout(bg.color = "white") +
+  tm_style("beaver") +
+  tm_compass(type = "8star", position = c("right", "top"))
+
+```
+
+## Side-by-Side Map Comparison
+```{r}
+# Maps arranged side by side
+tmap_arrange(Demographic_Index_Yakima_Map, PM25_Yakima_Map, ncol = 2)
+```
+
+## 
