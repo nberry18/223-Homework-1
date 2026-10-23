@@ -96,4 +96,4 @@ A possible next step in this analysis would be to incorporate elevation data to 
 ## Homework #1 Revision Memo
 I revised my maps by adding a scale bar using tm_scalebar() to each map. This is a tmap function that adds a scale bar to a map that helps readers understand distances on the map by showing how map units relate to real-world distances. 
 
-I updated the years listed on each map. The Particulate Matter (PM) 2.5 data is from the 2019 source data from EPA’s Office of Air Quality Planning and Standards (OAQPS), Non-attainment areas (NAA). The Demographic Index data is from the U.S. Census Bureau's American Community Survey (ACS) 2017-2021 5-Year Estimates (ACS 2021). 
+I updated the years listed on each map. The Particulate Matter (PM) 2.5 data is from the 2019 source data from EPA’s Office of Air Quality Planning and Standards (OAQPS), Non-attainment areas (NAA). The Demographic Index data is from the U.S. Census Bureau's American Community Survey (ACS) 2017-2021 5-Year Estimates (ACS 2021).  
