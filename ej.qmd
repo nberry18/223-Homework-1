@@ -55,12 +55,13 @@ Demographic_Index_Yakima <- tm_shape(yakima) +
   tm_polygons(fill = "DEMOGIDX_2",
               fill.scale = tm_scale_continuous(values = 'brewer.yl_gn'),
               fill.legend = tm_legend(title = "Average percent of low income 
-              and people of color (2023)")) +
-  tm_title('Demographic Index in Yakima County (2023)',
+              and people of color (2017-2021)")) +
+  tm_title('Demographic Index in Yakima County',
             frame = TRUE) + 
   tm_layout(bg.color = "white") +
   tm_style("beaver") +
-  tm_compass(type = "8star", position = c("right", "top"))
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scalebar()
 
 ```
 
@@ -72,11 +73,12 @@ PM25_Yakima <- tm_shape(yakima) +
   tm_polygons(fill = "PM25",
               fill.scale = tm_scale_continuous(values = 'brewer.yl_gn'),
               fill.legend = tm_legend(title = "Average PM2.5 Concentration 
-              (µg/m³) (2023)")) +
+              (µg/m³) (2019)")) +
   tm_title('PM2.5 Exposure in Yakima County',frame = TRUE) + 
   tm_layout(bg.color = "white") +
   tm_style("beaver") +
-  tm_compass(type = "8star", position = c("right", "top"))
+  tm_compass(type = "8star", position = c("right", "top")) +
+  tm_scalebar()
 
 ```
 
@@ -90,3 +92,8 @@ tmap_arrange(Demographic_Index_Yakima, PM25_Yakima, ncol = 2)
 The PM2.5 Exposure Map for Yakima County shows that the highest average PM2.5 concentrations (µg/m³)are concentrated in the eastern portion of the county, as indicated by the darker green shading. In contrast, the northwestern regions experience lower PM2.5 concentrations (µg/m³). The Demographic Index Map identifies census block groups with higher proportions of low-income residents and people of color, represented by light to dark green shades mostly located in the eastern and southern western part of the county. Comparing the two maps suggests that some communities with greater social vulnerability may also experience higher levels of PM2.5 exposure, highlighting potential environmental justice concerns. These communities often have fewer resources to support consistent air quality monitoring efforts. Yakima County is susceptible to fluctuating PM2.5 levels due to a variety of factors including wildfires, agricultural work, and the valley topography of the county. Expanding and maintaining a robust air monitoring network in vulnerable communities would provide a more current and representative dataset to improve our understanding of the local air quality conditions, and support efforts to ensure all residents have access to safe and clean air.
 
 A possible next step in this analysis would be to incorporate elevation data to better understand how Yakima County's valley topography influences the distribution and accumulation of PM2.5. Examining elevation alongside the current demographic of the county and PM2.5 concentrations could help identify areas that are disproportionately vulnerable to poor air quality and inform future mitigation efforts.
+
+## Homework #1 Revision Memo
+I revised my maps by adding a scale bar using tm_scalebar() to each map. This is a tmap function that adds a scale bar to a map that helps readers understand distances on the map by showing how map units relate to real-world distances. 
+
+I updated the years listed on each map. The Particulate Matter (PM) 2.5 data is from the 2019 source data from EPA’s Office of Air Quality Planning and Standards (OAQPS), Non-attainment areas (NAA). The Demographic Index data is from the U.S. Census Bureau's American Community Survey (ACS) 2017-2021 5-Year Estimates (ACS 2021). 
